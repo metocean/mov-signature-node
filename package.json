@@ -1,0 +1,29 @@
+{
+  "name": "mov-signature-node",
+  "version": "1.0.0",
+  "description": "Node.js library for signing requests to MOV",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc mocha",
+    "test:nocoverage": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metocean/mov-signature-node.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/metocean/mov-signature-node/issues"
+  },
+  "homepage": "https://github.com/metocean/mov-signature-node#readme",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "moment": "^2.18.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "nyc": "^10.2.0"
+  }
+}
