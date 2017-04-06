@@ -11,7 +11,7 @@ const url = 'https://some.url/here'
 describe('index', () => {
   describe('sign', () => {
     it('Uses a provided now', () => {
-      const httpMethod = 'GET'
+      const httpMethod = 'PATCH'
       const payload = ''
       const now = moment().utc()
       const result = MOVSig.sign({httpMethod, url, payload, agentcode, key, now})
@@ -20,15 +20,15 @@ describe('index', () => {
       expect(ts).to.eql(now.toISOString())
     })
     it('Creates a now if no now is given', () => {
-      const httpMethod = 'GET'
-      const payload = ''
+      const httpMethod = 'POST'
+      const payload = 'some payload'
       const result = MOVSig.sign({httpMethod, url, payload, agentcode, key})
       expect(result).to.be.a('string')
       const ts = result.match(/Credential=[^\/]+\/([^ ]+) /)[1]
       expect(moment().utc().diff(ts, 'seconds')).to.be.below(2)
     })
     it('Returns a correctly formatted string', () => {
-      const httpMethod = 'GET'
+      const httpMethod = 'DELETE'
       const payload = ''
       const now = moment().utc()
       const result = MOVSig.sign({httpMethod, url, payload, agentcode, key, now})
@@ -47,8 +47,8 @@ describe('index', () => {
       expect(result).to.eql(agentcode)
     })
     it('Creates a now if no now is given', () => {
-      const httpMethod = 'GET'
-      const payload = ''
+      const httpMethod = 'PUT'
+      const payload = JSON.stringify({an: ['array']})
       const authorizationHeader = MOVSig.sign({httpMethod, url, payload, agentcode, key})
       const result = MOVSig.verifySignature({authorizationHeader, httpMethod, url, payload, key})
       expect(result).to.be.a('string')
