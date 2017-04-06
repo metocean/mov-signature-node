@@ -82,7 +82,7 @@ Finally we can create the signature with
 HEX(HMAC-SHA256([SigningKey], [StringToSign]))
 ```
 
-If you're familiar with (how AWS signs requests)[https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html] this should feel somewhat familiar.
+If you're familiar with [how AWS signs requests](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) this should feel somewhat familiar.
 
 
 
